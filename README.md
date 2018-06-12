@@ -1,5 +1,5 @@
-# 2016-06-09
-Simulazione esame 2016-06-09 Punto B
+# 2016-06-08
+Simulazione esame 2016-06-08 Punto B
 
 Si consideri il database “formula1”, contenente informazioni su tutte le gare, i costruttori, i piloti ed i circuiti di Formula 1, estratto dai dati pubblicati sul sito http://ergast.com/mrd/
 
