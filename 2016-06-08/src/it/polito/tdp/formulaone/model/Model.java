@@ -13,6 +13,7 @@ public class Model {
 	private SimpleDirectedWeightedGraph<Driver, DefaultWeightedEdge> grafo;
 	private DriverIdMap driverIdMap;
 	private List<Driver> drivers;
+	private List<FantaPilota> fantaPiloti;
 	
 	public Model() {
 		fonedao = new FormulaOneDAO();
@@ -27,5 +28,15 @@ public class Model {
 	
 	public List<Driver> getAllDrivers() {
 		return this.drivers;
+	}
+	
+	public List<FantaPilota> getFantaPiloti() {
+		return fantaPiloti;
+	}
+	
+	public void simula(int circuitId, Driver driver) {
+		fantaPiloti = fonedao.getFantaPiloti(circuitId, driver);
+		Simulazione sim = new Simulazione(this);
+		sim.simula();
 	}
 }
