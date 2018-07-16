@@ -2,6 +2,7 @@ package it.polito.tdp.formulaone.model;
 
 import java.util.List;
 
+import org.jgrapht.Graphs;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
@@ -12,13 +13,12 @@ public class Model {
 	private FormulaOneDAO fonedao;
 	private SimpleDirectedWeightedGraph<Driver, DefaultWeightedEdge> grafo;
 	private DriverIdMap driverIdMap;
-	private List<Driver> drivers;
+	private List<Driver> drivers;	
 	
 	public Model() {
 		fonedao = new FormulaOneDAO();
 		driverIdMap = new DriverIdMap();
 		drivers = fonedao.getAllDrivers(driverIdMap);
-		System.out.println(driverIdMap);
 	}
 
 	public List<Season> getAllSeasons() {
@@ -27,5 +27,16 @@ public class Model {
 	
 	public List<Driver> getAllDrivers() {
 		return this.drivers;
+	}
+	
+	public List<Race> getRacesByYear(int year) {
+		return fonedao.getRacesByYear(year);
+	}
+	
+	public List<RaceAndDrivers> getDriversByRace(int year, int raceRound) {
+		return fonedao.getDriversByRace(year, raceRound);
+	}
+		
+	public void creaGrafo(int year, Race race) {
 	}
 }
